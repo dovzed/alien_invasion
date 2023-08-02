@@ -33,32 +33,32 @@ class AlienInvasion:
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                self._check_keydown_events(event)
+                self._check_keydown_events(event.key)
             elif event.type == pygame.KEYUP:
-                self._check_keyup_events(event)
+                self._check_keyup_events(event.key)
 
-    def _check_keydown_events(self, event):
+    def _check_keydown_events(self, key):
         """Respond to keypresses"""
-        if event.key == pygame.K_RIGHT:
+        if key == pygame.K_RIGHT or key == pygame.K_d:
             self.ship.moving_right = True
-        elif event.key == pygame.K_LEFT:
+        elif key == pygame.K_LEFT or key == pygame.K_a:
             self.ship.moving_left = True
-        elif event.key == pygame.K_UP:
+        elif key == pygame.K_UP or key == pygame.K_w:
             self.ship.moving_up = True
-        elif event.key == pygame.K_DOWN:
+        elif key == pygame.K_DOWN or key == pygame.K_s:
             self.ship.moving_down = True
-        elif event.key == pygame.K_q:
+        elif key == pygame.K_q:
             sys.exit()
 
-    def _check_keyup_events(self, event):
+    def _check_keyup_events(self, key):
         """Respond to key releases."""
-        if event.key == pygame.K_RIGHT:
+        if key == pygame.K_RIGHT or key == pygame.K_d:
             self.ship.moving_right = False
-        elif event.key == pygame.K_LEFT:
+        elif key == pygame.K_LEFT or key == pygame.K_a:
             self.ship.moving_left = False
-        elif event.key == pygame.K_UP:
+        elif key == pygame.K_UP or key == pygame.K_w:
             self.ship.moving_up = False
-        elif event.key == pygame.K_DOWN:
+        elif key == pygame.K_DOWN or key == pygame.K_s:
             self.ship.moving_down = False
 
     def _update_screen(self):
