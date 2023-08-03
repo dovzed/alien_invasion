@@ -25,7 +25,7 @@ class AlienInvasion:
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
-        self.game_active = True
+        self.game_active = False
 
         self._create_fleet()
 
