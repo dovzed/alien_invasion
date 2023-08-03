@@ -87,6 +87,7 @@ class AlienInvasion:
             self.aliens.empty()
             self._create_fleet()
             self.ship.center_ship()
+            pygame.mouse.set_visible(False)
 
     def _check_keydown_events(self, event):
         """Respond to keypresses"""
@@ -122,7 +123,7 @@ class AlienInvasion:
 
     def _check_bullet_alien_collisions(self):
         """Respond to bullet-alien collisions."""
-        collision = pygame.sprite.groupcollide(
+        pygame.sprite.groupcollide(
             self.bullets, self.aliens, True, True
         )
         if not self.aliens:
@@ -159,6 +160,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.game_active = False
+            pygame.mouse.set_visible(True)
 
     def _check_fleet_edges(self):
         """Respond appropriately if any aliens have reached an edge."""
